@@ -277,7 +277,7 @@ def confirm(message):
     bot.send_message(
         message.chat.id,
         'Переведите точную суму: ' + str(price) + ' XLM на кошелек:\n' +
-        'GB4JY7XWDUZAVFEZ4PURL42VTYOWGLUQ2R3RBNNLRD3BR7W276ZTJGEN\n' +
+        'GDA5VBQHOWGADONFFURDCA4TA6UE45CHYVKXXFTFPIJP3EEAJQMP3AJT\n' +
         '№ вашей заявки ' + str(message.message_id),
         reply_markup=keyboard
     )
