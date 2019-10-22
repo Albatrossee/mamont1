@@ -164,7 +164,7 @@ def valueXLMUAH(message):
     if value == 0:
         try:
 
-            if float(message.text) >= 549:
+            if float(message.text) >= 300:
                 keyboard = telebot.types.InlineKeyboardMarkup()
                 keyboard.row(
                     telebot.types.InlineKeyboardButton('Да', callback_data='yesButton')
@@ -178,7 +178,7 @@ def valueXLMUAH(message):
                     reply_markup=keyboard
                 )
             else:
-                bot.send_message(message.from_user.id, 'min 549')
+                bot.send_message(message.from_user.id, 'min 300')
         except Exception:
             bot.send_message(message.from_user.id, 'Цифрами, пожалуйста')
 
@@ -190,7 +190,7 @@ def valueXLMRUB(message):
     global value
     if value == 0:
         try:
-            if int(message.text) >= 549:
+            if int(message.text) >= 300:
                 keyboard = telebot.types.InlineKeyboardMarkup()
                 keyboard.row(
                     telebot.types.InlineKeyboardButton('Да', callback_data='yesButton')
@@ -204,7 +204,7 @@ def valueXLMRUB(message):
                     reply_markup=keyboard
                 )
             else:
-                bot.send_message(message.from_user.id, 'min 549т   '
+                bot.send_message(message.from_user.id, 'min 300'
                                                        ''
                                                        '')
         except Exception:
