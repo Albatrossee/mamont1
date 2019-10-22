@@ -204,9 +204,7 @@ def valueXLMRUB(message):
                     reply_markup=keyboard
                 )
             else:
-                bot.send_message(message.from_user.id, 'min 300'
-                                                       ''
-                                                       '')
+                bot.send_message(message.from_user.id, 'min 300')
         except Exception:
             bot.send_message(message.from_user.id, 'Цифрами, пожалуйста')
 
