@@ -5,7 +5,7 @@ REDIS_URL = os.getevn('REDIS_URL')
 r = redis.from_url(REDIS_URL)
 
 
-TOKEN = '1027125386:AAGJEha1Q6NJcKn2g8XMc8gDZpDd7OOqub4'
+TOKEN = '1032706517:AAGnFjCyxox1szpDrSg9TnraYLAK5OclvyM'
 bot = telebot.TeleBot(TOKEN)
 value = 0
 price = 0
