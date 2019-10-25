@@ -1,7 +1,7 @@
 import telebot
 from emoji import emojize
 from redis import StrictRedis
-r = StrictRedis(host='localhost', port=6379, db=0)
+r = StrictRedis(host='redis-13118.c59.eu-west-1-2.ec2.cloud.redislabs.com', port=13118, db=0)
 
 TOKEN = '1027125386:AAGJEha1Q6NJcKn2g8XMc8gDZpDd7OOqub4'
 bot = telebot.TeleBot(TOKEN)
