@@ -97,6 +97,7 @@ def antiban(message):
         start_command(message)
     else:
         bot.send_message(message.chat.id, "Вы забанены!!!")
+        bot.register_next_step_handler(message, antiban)
 
 
 
