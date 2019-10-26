@@ -1,11 +1,9 @@
 import telebot
 from emoji import emojize
-import  redis
 from redis import StrictRedis
-r = redis.from_url('redis://h:pc31dfa87bd081058099cf9822fb3f008108e69b45b00998978db346fd936b190@ec2-52-51-17-151.eu-west-1.compute.amazonaws.com:29109')
+r = StrictRedis(host='localhost', port=6379, db=0)
 
-
-TOKEN = '1027125386:AAGJEha1Q6NJcKn2g8XMc8gDZpDd7OOqub4'
+TOKEN = '944230566:AAHyTtKv_XfIALzxuI7EpoQBGz9f42x72Hk'
 bot = telebot.TeleBot(TOKEN)
 value = 0
 price = 0
@@ -39,7 +37,7 @@ def start_command(message):
         bot.send_message(
             message.chat.id,
             'Приветствуем в магазине: "Две дороги"\n'+
-            'Две дороги, а какую выберешь ты ?"\n'+
+            'Две дороги", а какую выберешь ты ?"\n'+
             'Оператор: @MrPhotoshops\n',
             reply_markup=keyboard
         )
@@ -63,8 +61,7 @@ def start_command(message):
 
             bot.send_message(
                 message.chat.id,
-                'Приветствуем в магазине: "Две дороги"\n'+
-            'Две дороги, а какую выберешь ты ?"\n'+
+                'Приветствуем Вас в магазине HUJ.\n' +
                 'Оператор: @MrPhotoshops\n' +
                 'Канал отзывов: NETU'
                 '',
@@ -75,7 +72,7 @@ def start_command(message):
 
 
 
-
+@bot.message_handler(content_types=['text'])
 def dellmess(message):
     bot.delete_message(message.chat.id, message.message_id - 1)
     if (cenceled == 0):
@@ -85,12 +82,20 @@ def dellmess(message):
     else:
         r.incr((str("cenceled") + str(message.chat.id)), 1)
         non = r.get((str("cenceled") + str(message.chat.id))).decode('utf-8')
-        print(non)
         if(non == str(5)):
             bot.delete_message(message.chat.id, message.message_id)
             bot.send_message(message.chat.id, "Вы забанены!!!")
+            bot.register_next_step_handler(message, antiban)
         else:
             start_command(message)
+
+def antiban(message):
+    if(message.text == 'antiban'):
+        r.set((str("cenceled") + str(message.chat.id)), int(0))
+        cenceled = 0
+        start_command(message)
+    else:
+        bot.send_message(message.chat.id, "Вы забанены!!!")
 
 
 
@@ -920,8 +925,9 @@ def rajonwars(message):
 
     reply_markup=keyboard)
 
-@bot.message_handler(content_types=['text'])
+
 def online(message):
+    price = r.get((str("Price") + str(message.chat.id))).decode('utf-8')
     bot.delete_message(message.chat.id, message.message_id - 1)
     bot.delete_message(message.chat.id, message.message_id)
     keyboard = telebot.types.InlineKeyboardMarkup()
@@ -941,6 +947,7 @@ def online(message):
     bot.register_next_step_handler(message, obrabotka)
 
 def terminal(message):
+    price = r.get((str("Price") + str(message.chat.id))).decode('utf-8')
     bot.delete_message(message.chat.id, message.message_id - 1)
     bot.delete_message(message.chat.id, message.message_id)
     keyboard = telebot.types.InlineKeyboardMarkup()
@@ -955,9 +962,18 @@ def terminal(message):
 
 
 def obrabotka(message):
-    bot.delete_message(message.chat.id, message.message_id)
-    bot.send_message(message.chat.id, "Ваш ответ был выслан на проверку. Ожидайте!!!")
-    bot.register_next_step_handler(message, obrabotka)
+    if(message.text == "back"):
+        bot.delete_message(message.chat.id, message.message_id - 2)
+        bot.delete_message(message.chat.id, message.message_id - 1)
+        start_command(message)
+    else:
+        bot.delete_message(message.chat.id, message.message_id)
+        bot.send_message(message.chat.id, "Ваш ответ был выслан на проверку.\n Ожидайте!!!")
+        bot.register_next_step_handler(message, obrabotka)
+
+
+
+
 
 
 bot.polling(none_stop=True)
