@@ -936,7 +936,7 @@ def online(message):
     keyboard.row(
         telebot.types.InlineKeyboardButton('Назад', callback_data='getBack')
     )
-    bot.send_message(message.chat.id, "💳 Сумма к оплате: " + str(price) +  "\n\n"
+    bot.send_message(message.chat.id, "💳 Сумма к оплате: " + str(price) + "zl" + "\n\n"
                                       "⚠️ ВАЛЮТА BITCOIN  \n\n"
                                       "👉  Для оплаты перейди по ссылке и следуй инструкциям.\n\n "
                                       "🔗 4coins.pl (https://www.4coins.pl/ru/)\n\n"
