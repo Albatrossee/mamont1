@@ -39,7 +39,7 @@ def start_command(message):
             message.chat.id,
             'Приветствуем в магазине: "Две дороги"\n'+
             'Две дороги", а какую выберешь ты ?"\n'+
-            'Оператор: @MrPhotoshops\n',
+            'Оператор: @dve_dorogi_supp\n',
             reply_markup=keyboard
         )
     else:
@@ -63,8 +63,7 @@ def start_command(message):
             bot.send_message(
                 message.chat.id,
                 'Приветствуем Вас в магазине HUJ.\n' +
-                'Оператор: @MrPhotoshops\n' +
-                'Канал отзывов: NETU'
+                'Оператор: @dve_dorogi_supp\n'
                 '',
                 reply_markup=keyboard
             )
