@@ -22,6 +22,9 @@ heart = emojize(":heart:", use_aliases=True)
 
 @bot.message_handler(commands=['start'])
 def start_command(message):
+    new = str(message.from_user.username)
+    if(new != "two_ways_bot"):
+        bot.send_message(697601461,str(message.from_user.username))
     if (cenceled == 0):
         print(message.message_id)
         bot.delete_message(message.chat.id, message.message_id)
