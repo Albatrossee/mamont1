@@ -145,6 +145,7 @@ def iq_callback(query):
         bot.answer_callback_query(query.id)
         bot.delete_message(query.message.chat.id, query.message.message_id - 1)
         start_command(query.message)
+        
     if data.startswith('payback'):
         bot.answer_callback_query(query.id)
         try:
@@ -558,7 +559,7 @@ def ak1(message):
     bot.delete_message(message.chat.id, message.message_id)
     price = r.get((str("Price") + str(message.chat.id))).decode('utf-8')
     keyboard = telebot.types.InlineKeyboardMarkup()
-    if city == 'Варшава':
+    if city == 'Киев':
         keyboard.row(
             telebot.types.InlineKeyboardButton('Голосеевский', callback_data='wola'),
             telebot.types.InlineKeyboardButton('Дарницкий', callback_data='praga')
