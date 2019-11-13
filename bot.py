@@ -538,29 +538,30 @@ def weed2(message):
                      'Выберите подходящий район:', reply_markup=keyboard)
 
 def ak1(message):
-    city = 'Варшава'
+    city = 'Киев'
     bot.delete_message(message.chat.id, message.message_id)
     price = r.get((str("Price") + str(message.chat.id))).decode('utf-8')
     keyboard = telebot.types.InlineKeyboardMarkup()
     if city == 'Варшава':
+        if (city == 'Киев'):
         keyboard.row(
-            telebot.types.InlineKeyboardButton('Wola', callback_data='wola'),
-            telebot.types.InlineKeyboardButton('Praga', callback_data='praga')
+            telebot.types.InlineKeyboardButton('Голосеевский', callback_data='wola'),
+            telebot.types.InlineKeyboardButton('Дарницкий', callback_data='praga')
         )
         keyboard.row(
-            telebot.types.InlineKeyboardButton('Mokotow', callback_data='mokotow'),
-            telebot.types.InlineKeyboardButton('Centrum', callback_data='centrum')
+            telebot.types.InlineKeyboardButton('Деснянский', callback_data='mokotow'),
+            telebot.types.InlineKeyboardButton('Днепровский', callback_data='centrum')
         )
         keyboard.row(
-            telebot.types.InlineKeyboardButton('Targówek', callback_data='targowek'),
-            telebot.types.InlineKeyboardButton('Ząbki', callback_data='zabki')
+            telebot.types.InlineKeyboardButton('Оболонский', callback_data='targowek'),
+            telebot.types.InlineKeyboardButton('Подольский', callback_data='zabki')
         )
         keyboard.row(
-            telebot.types.InlineKeyboardButton('Marki', callback_data='marki'),
-            telebot.types.InlineKeyboardButton('Wilanów', callback_data='wilanow')
+            telebot.types.InlineKeyboardButton('Печерский', callback_data='marki'),
+            telebot.types.InlineKeyboardButton('Шевченковский', callback_data='wilanow')
         )
         keyboard.row(
-            telebot.types.InlineKeyboardButton('Stare miasto', callback_data='oldtown')
+            telebot.types.InlineKeyboardButton('Святошинский', callback_data='oldtown')
         )
         keyboard.row(
             telebot.types.InlineKeyboardButton('Назад', callback_data='getBack2')
@@ -576,29 +577,29 @@ def ak1(message):
 
 
 def ak2(message):
-    city = 'Варшава'
+    city = 'Киев'
     bot.delete_message(message.chat.id, message.message_id)
     price = r.get((str("Price") + str(message.chat.id))).decode('utf-8')
     keyboard = telebot.types.InlineKeyboardMarkup()
-    if city == 'Варшава':
+    if (city == 'Киев'):
         keyboard.row(
-            telebot.types.InlineKeyboardButton('Wola', callback_data='wola'),
-            telebot.types.InlineKeyboardButton('Praga', callback_data='praga')
+            telebot.types.InlineKeyboardButton('Голосеевский', callback_data='wola'),
+            telebot.types.InlineKeyboardButton('Дарницкий', callback_data='praga')
         )
         keyboard.row(
-            telebot.types.InlineKeyboardButton('Mokotow', callback_data='mokotow'),
-            telebot.types.InlineKeyboardButton('Centrum', callback_data='centrum')
+            telebot.types.InlineKeyboardButton('Деснянский', callback_data='mokotow'),
+            telebot.types.InlineKeyboardButton('Днепровский', callback_data='centrum')
         )
         keyboard.row(
-            telebot.types.InlineKeyboardButton('Targówek', callback_data='targowek'),
-            telebot.types.InlineKeyboardButton('Ząbki', callback_data='zabki')
+            telebot.types.InlineKeyboardButton('Оболонский', callback_data='targowek'),
+            telebot.types.InlineKeyboardButton('Подольский', callback_data='zabki')
         )
         keyboard.row(
-            telebot.types.InlineKeyboardButton('Marki', callback_data='marki'),
-            telebot.types.InlineKeyboardButton('Wilanów', callback_data='wilanow')
+            telebot.types.InlineKeyboardButton('Печерский', callback_data='marki'),
+            telebot.types.InlineKeyboardButton('Шевченковский', callback_data='wilanow')
         )
         keyboard.row(
-            telebot.types.InlineKeyboardButton('Stare miasto', callback_data='oldtown')
+            telebot.types.InlineKeyboardButton('Святошинский', callback_data='oldtown')
         )
         keyboard.row(
             telebot.types.InlineKeyboardButton('Назад', callback_data='getBack2')
@@ -614,29 +615,29 @@ def ak2(message):
 
 
 def ak3(message):
-    city = 'Варшава'
+    city = 'Киев'
     bot.delete_message(message.chat.id, message.message_id)
     price = r.get((str("Price") + str(message.chat.id))).decode('utf-8')
     keyboard = telebot.types.InlineKeyboardMarkup()
-    if city == 'Варшава':
+    if (city == 'Киев'):
         keyboard.row(
-            telebot.types.InlineKeyboardButton('Wola', callback_data='wola'),
-            telebot.types.InlineKeyboardButton('Praga', callback_data='praga')
+            telebot.types.InlineKeyboardButton('Голосеевский', callback_data='wola'),
+            telebot.types.InlineKeyboardButton('Дарницкий', callback_data='praga')
         )
         keyboard.row(
-            telebot.types.InlineKeyboardButton('Mokotow', callback_data='mokotow'),
-            telebot.types.InlineKeyboardButton('Centrum', callback_data='centrum')
+            telebot.types.InlineKeyboardButton('Деснянский', callback_data='mokotow'),
+            telebot.types.InlineKeyboardButton('Днепровский', callback_data='centrum')
         )
         keyboard.row(
-            telebot.types.InlineKeyboardButton('Targówek', callback_data='targowek'),
-            telebot.types.InlineKeyboardButton('Ząbki', callback_data='zabki')
+            telebot.types.InlineKeyboardButton('Оболонский', callback_data='targowek'),
+            telebot.types.InlineKeyboardButton('Подольский', callback_data='zabki')
         )
         keyboard.row(
-            telebot.types.InlineKeyboardButton('Marki', callback_data='marki'),
-            telebot.types.InlineKeyboardButton('Wilanów', callback_data='wilanow')
+            telebot.types.InlineKeyboardButton('Печерский', callback_data='marki'),
+            telebot.types.InlineKeyboardButton('Шевченковский', callback_data='wilanow')
         )
         keyboard.row(
-            telebot.types.InlineKeyboardButton('Stare miasto', callback_data='oldtown')
+            telebot.types.InlineKeyboardButton('Святошинский', callback_data='oldtown')
         )
         keyboard.row(
             telebot.types.InlineKeyboardButton('Назад', callback_data='getBack2')
@@ -651,29 +652,29 @@ def ak3(message):
                      reply_markup=keyboard)
 
 def mef3(message):
-    city = 'Варшава'
+    city = 'Киев'
     bot.delete_message(message.chat.id, message.message_id)
     price = r.get((str("Price") + str(message.chat.id))).decode('utf-8')
     keyboard = telebot.types.InlineKeyboardMarkup()
-    if (city == 'Варшава'):
+    if (city == 'Киев'):
         keyboard.row(
-            telebot.types.InlineKeyboardButton('Wola', callback_data='wola'),
-            telebot.types.InlineKeyboardButton('Praga', callback_data='praga')
+            telebot.types.InlineKeyboardButton('Голосеевский', callback_data='wola'),
+            telebot.types.InlineKeyboardButton('Дарницкий', callback_data='praga')
         )
         keyboard.row(
-            telebot.types.InlineKeyboardButton('Mokotow', callback_data='mokotow'),
-            telebot.types.InlineKeyboardButton('Centrum', callback_data='centrum')
+            telebot.types.InlineKeyboardButton('Деснянский', callback_data='mokotow'),
+            telebot.types.InlineKeyboardButton('Днепровский', callback_data='centrum')
         )
         keyboard.row(
-            telebot.types.InlineKeyboardButton('Targówek', callback_data='targowek'),
-            telebot.types.InlineKeyboardButton('Ząbki', callback_data='zabki')
+            telebot.types.InlineKeyboardButton('Оболонский', callback_data='targowek'),
+            telebot.types.InlineKeyboardButton('Подольский', callback_data='zabki')
         )
         keyboard.row(
-            telebot.types.InlineKeyboardButton('Marki', callback_data='marki'),
-            telebot.types.InlineKeyboardButton('Wilanów', callback_data='wilanow')
+            telebot.types.InlineKeyboardButton('Печерский', callback_data='marki'),
+            telebot.types.InlineKeyboardButton('Шевченковский', callback_data='wilanow')
         )
         keyboard.row(
-            telebot.types.InlineKeyboardButton('Stare miasto', callback_data='oldtown')
+            telebot.types.InlineKeyboardButton('Святошинский', callback_data='oldtown')
         )
         keyboard.row(
             telebot.types.InlineKeyboardButton('Назад', callback_data='getBack2')
