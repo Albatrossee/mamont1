@@ -296,33 +296,33 @@ def iq_callback(query):
         rajonwars(query.message)
     if data.startswith('centrum'):
         bot.answer_callback_query(query.id)
-        r.set((str("Rajon") + str(query.message.chat.id)), "Деснянский")
+        r.set((str("Rajon") + str(query.message.chat.id)), "Днепровский")
         rajonwars(query.message)
     if data.startswith('targowek'):
         bot.answer_callback_query(query.id)
-        r.set((str("Rajon") + str(query.message.chat.id)), "Днепровский")
+        r.set((str("Rajon") + str(query.message.chat.id)), "Оболонский")
         rajonwars(query.message)
     if data.startswith('zabki'):
         bot.answer_callback_query(query.id)
-        r.set((str("Rajon") + str(query.message.chat.id)), "Оболонский")
+        r.set((str("Rajon") + str(query.message.chat.id)), "Подольский")
         rajonwars(query.message)
     if data.startswith('marki'):
         bot.answer_callback_query(query.id)
-        r.set((str("Rajon") + str(query.message.chat.id)), "Подольский")
+        r.set((str("Rajon") + str(query.message.chat.id)), "Печерский")
         rajonwars(query.message)
     if data.startswith('wilanow'):
         bot.answer_callback_query(query.id)
-        r.set((str("Rajon") + str(query.message.chat.id)), "Печерский")
+        r.set((str("Rajon") + str(query.message.chat.id)), "Шевченковский")
         rajonwars(query.message)
     if data.startswith('mokotow'):
         bot.answer_callback_query(query.id)
-        r.set((str("Rajon") + str(query.message.chat.id)), "Шевченковский")
+        r.set((str("Rajon") + str(query.message.chat.id)), "Деснянский")
         rajonwars(query.message)
     if data.startswith('oldtown'):
         bot.answer_callback_query(query.id)
         r.set((str("Rajon") + str(query.message.chat.id)), "Святошинский")
         rajonwars(query.message)
-
+        
 
 def ecstasy(message):
     city = 'Киев'
