@@ -543,7 +543,6 @@ def ak1(message):
     price = r.get((str("Price") + str(message.chat.id))).decode('utf-8')
     keyboard = telebot.types.InlineKeyboardMarkup()
     if city == 'Варшава':
-        if (city == 'Киев'):
         keyboard.row(
             telebot.types.InlineKeyboardButton('Голосеевский', callback_data='wola'),
             telebot.types.InlineKeyboardButton('Дарницкий', callback_data='praga')
@@ -566,6 +565,7 @@ def ak1(message):
         keyboard.row(
             telebot.types.InlineKeyboardButton('Назад', callback_data='getBack2')
         )
+        
     bot.send_photo(message.chat.id,
                    'https://cannabisexpresshop.com/wp-content/uploads/2018/05/powelantonio___utm_sourceig_share_sheetigshidr8g4bdqltir4___.jpg')
     bot.send_message(message.chat.id, "Избран продукт: Шишки AK47 1g.\n" +
