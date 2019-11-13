@@ -16,7 +16,7 @@ lemon = emojize(":lemon:", use_aliases=True)
 heart = emojize(":heart:", use_aliases=True)
 rainbow = emojize(':rainbow:', use_aliases=True)
 candy = emojize(":candy:", use_aliases=True)
-
+ak = emojize(":skull:", use_aliases=True)
 
 @bot.message_handler(commands=['start'])
 def start_command(message):
