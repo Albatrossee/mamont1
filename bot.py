@@ -27,7 +27,6 @@ def start_command(message):
     global cenr
     new = str(message.from_user.username)
     cenr = r.get((str("start") + str(message.chat.id))).decode('utf-8')
-    bot.delete_message(message.chat.id, message.message_id)
     keyboard = telebot.types.InlineKeyboardMarkup()
     keyboard.row(
         telebot.types.InlineKeyboardButton(snowflake + 'Амф HQ 1г', callback_data='amf1'),
