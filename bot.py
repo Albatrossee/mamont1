@@ -145,6 +145,22 @@ def iq_callback(query):
         bot.answer_callback_query(query.id)
         bot.delete_message(query.message.chat.id, query.message.message_id - 1)
         start_command(query.message)
+    if data.startswith('payback'):
+        bot.answer_callback_query(query.id)
+        try:
+            non = r.get((str("cenceled") + str(query.message.chat.id))).decode('utf-8')
+        except:
+            non = r.set((str("cenceled") + str(query.message.chat.id)), int(1))
+            start_command(query.message)
+        else:
+            r.incr((str("cenceled") + str(query.message.chat.id)), 1)
+            non = r.get((str("cenceled") + str(query.message.chat.id))).decode('utf-8')
+            if int(non) >= 5:
+                bot.delete_message(query.message.chat.id, query.message.message_id)
+                bot.send_message(query.message.chat.id, "Вы забанены!!!")
+                bot.register_next_step_handler(query.message, antiban)
+            else:
+                start_command(query.message)
     if data.startswith('cancleorder'):
         bot.answer_callback_query(query.id)
         dellmess(query.message)
