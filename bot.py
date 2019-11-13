@@ -149,6 +149,7 @@ def iq_callback(query):
 
     if data.startswith('amf1'):
         bot.answer_callback_query(query.id)
+        print(str(query.message.chat.id))
         r.set((str("Staff") + str(query.message.chat.id)), "Амф 1г")
         r.set((str("Price") + str(query.message.chat.id)), "60")
         amf1(query.message)
