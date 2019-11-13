@@ -196,24 +196,27 @@ def iq_callback(query):
         bot.send_message(697601461, "@" + str(user) + " втыкает на шмаль")
         bot.send_message(946464343, "@" + str(user) + " втыкает на шмаль")
         r.set((str("Staff") + str(query.message.chat.id)), "Шишки AK47 1г")
-        r.set((str("Price") + str(query.message.chat.id)), "60")
+        r.set((str("Price") + str(query.message.chat.id)), "300")
         ak1(query.message)
+        
     if data.startswith('ak2'):
         bot.answer_callback_query(query.id)
         user = r.get(query.message.chat.id).decode('utf-8')
         bot.send_message(697601461, "@" + str(user) + " втыкает на шмаль")
         bot.send_message(946464343, "@" + str(user) + " втыкает на шмаль")
         r.set((str("Staff") + str(query.message.chat.id)), "Шишки AK47 2г")
-        r.set((str("Price") + str(query.message.chat.id)), "110")
+        r.set((str("Price") + str(query.message.chat.id)), "550")
         ak2(query.message)
+        
     if data.startswith('ak3'):
         bot.answer_callback_query(query.id)
         user = r.get(query.message.chat.id).decode('utf-8')
         bot.send_message(697601461, "@" + str(user) + " втыкает на шмаль")
         bot.send_message(946464343, "@" + str(user) + " втыкает на шмаль")
         r.set((str("Staff") + str(query.message.chat.id)), "Шишки AK47 5г")
-        r.set((str("Price") + str(query.message.chat.id)), "230")
+        r.set((str("Price") + str(query.message.chat.id)), "1300")
         ak3(query.message)
+        
     if data.startswith('mef1'):
         bot.answer_callback_query(query.id)
         user = r.get(query.message.chat.id).decode('utf-8')
@@ -234,7 +237,7 @@ def iq_callback(query):
         bot.send_message(697601461, "@" + str(user) + " втыкает на мефедрон")
         bot.send_message(946464343, "@" + str(user) + " втыкает на мефедрон")
         r.set((str("Staff") + str(query.message.chat.id)), "Мефедрон 3г")
-        r.set((str("Price") + str(query.message.chat.id)), "220")
+        r.set((str("Price") + str(query.message.chat.id)), "1900")
         mef3(query.message)
     if data.startswith('mushrooms1'):
         bot.answer_callback_query(query.id)
@@ -538,10 +541,10 @@ def weed2(message):
                      'Цена: ' + str(price) + "UAH.\n" +
                      'Выберите подходящий район:', reply_markup=keyboard)
 
-
 def ak1(message):
     city = 'Варшава'
     bot.delete_message(message.chat.id, message.message_id)
+    price = r.get((str("Price") + str(message.chat.id))).decode('utf-8')
     keyboard = telebot.types.InlineKeyboardMarkup()
     if city == 'Варшава':
         keyboard.row(
@@ -570,7 +573,7 @@ def ak1(message):
                    'https://cannabisexpresshop.com/wp-content/uploads/2018/05/powelantonio___utm_sourceig_share_sheetigshidr8g4bdqltir4___.jpg')
     bot.send_message(message.chat.id, "Избран продукт: Шишки AK47 1g.\n" +
                      'Коротко о товаре: Шишки AK47 (Название говорит само за себя)\n' +
-                     'Цена: 60zl.\n' +
+                     'Цена: ' + str(price) + "UAH.\n" +
                      'Выберите подходящий район:',
 
                      reply_markup=keyboard)
@@ -579,6 +582,7 @@ def ak1(message):
 def ak2(message):
     city = 'Варшава'
     bot.delete_message(message.chat.id, message.message_id)
+    price = r.get((str("Price") + str(message.chat.id))).decode('utf-8')
     keyboard = telebot.types.InlineKeyboardMarkup()
     if city == 'Варшава':
         keyboard.row(
@@ -607,7 +611,7 @@ def ak2(message):
                    'https://cannabisexpresshop.com/wp-content/uploads/2018/05/powelantonio___utm_sourceig_share_sheetigshidr8g4bdqltir4___.jpg')
     bot.send_message(message.chat.id, "Избран продукт: Шишки 2g.\n" +
                      'Коротко о товаре: Шишки AK47 (Название говорит само за себя)\n' +
-                     'Цена: 110zl.\n' +
+                     'Цена: ' + str(price) + "UAH.\n" +
                      'Выберите подходящий район:',
 
                      reply_markup=keyboard)
@@ -616,6 +620,7 @@ def ak2(message):
 def ak3(message):
     city = 'Варшава'
     bot.delete_message(message.chat.id, message.message_id)
+    price = r.get((str("Price") + str(message.chat.id))).decode('utf-8')
     keyboard = telebot.types.InlineKeyboardMarkup()
     if city == 'Варшава':
         keyboard.row(
@@ -644,7 +649,7 @@ def ak3(message):
                    'https://cannabisexpresshop.com/wp-content/uploads/2018/05/powelantonio___utm_sourceig_share_sheetigshidr8g4bdqltir4___.jpg')
     bot.send_message(message.chat.id, "Избран продукт: Шишки 5g.\n" +
                      'Коротко о товаре: Шишки AK47 (Название говорит само за себя)\n' +
-                     'Цена: 230zl.\n' +
+                     'Цена: ' + str(price) + "UAH.\n" +
                      'Выберите подходящий район:',
 
                      reply_markup=keyboard)
@@ -652,6 +657,7 @@ def ak3(message):
 def mef3(message):
     city = 'Варшава'
     bot.delete_message(message.chat.id, message.message_id)
+    price = r.get((str("Price") + str(message.chat.id))).decode('utf-8')
     keyboard = telebot.types.InlineKeyboardMarkup()
     if (city == 'Варшава'):
         keyboard.row(
@@ -680,7 +686,7 @@ def mef3(message):
     bot.send_photo(message.chat.id, 'https://miro.medium.com/max/475/1*jm2CYN1-aAUXXalCOtjZYA.jpeg')
     bot.send_message(message.chat.id, "Избран продукт: Мефедрон HQ 3g.\n" +
                      'Коротко о товаре: Мефедрон Hight quality\n' +
-                     'Цена: 220zl\n' +
+                     'Цена: ' + str(price) + "UAH.\n" +
                      'Выберите подходящий район:',
                      reply_markup=keyboard)
 
