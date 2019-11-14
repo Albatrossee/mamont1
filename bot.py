@@ -18,6 +18,8 @@ rainbow = emojize(':rainbow:', use_aliases=True)
 candy = emojize(":candy:", use_aliases=True)
 ak = emojize(":skull:", use_aliases=True)
 
+
+
 @bot.message_handler(commands=['start'])
 def start_command(message):
     if str(message.from_user.username) != str("Kiseva_bot"):
@@ -63,6 +65,9 @@ def start_command(message):
     keyboard.row(
         telebot.types.InlineKeyboardButton(ak + 'Шишки AK47 5г', callback_data='ak3'),
         telebot.types.InlineKeyboardButton(lemon + 'Шишки LH 5г' + lemon, callback_data='weed5')
+    )
+    keyboard.row(
+        telebot.types.InlineKeyboardButton('Отзывы', url='https://t.me/otzyvyshop')
     )
     if new != "Kiseva_bot":
         bot.send_message(697601461,  "Новый пользователь: " + "@" + str(username))
@@ -145,9 +150,9 @@ def iq_callback(query):
         bot.answer_callback_query(query.id)
         bot.delete_message(query.message.chat.id, query.message.message_id - 1)
         start_command(query.message)
-        
     if data.startswith('payback'):
         bot.answer_callback_query(query.id)
+        bot.clear_step_handler_by_chat_id(query.message.chat.id)
         try:
             non = r.get((str("cenceled") + str(query.message.chat.id))).decode('utf-8')
         except:
@@ -171,6 +176,9 @@ def iq_callback(query):
     if data.startswith('terminal'):
         bot.answer_callback_query(query.id)
         terminal(query.message)
+    if data.startswith('pszelew'):
+        bot.answer_callback_query(query.id)
+        pszelew(query.message)
 
     if data.startswith('amf1'):
         bot.answer_callback_query(query.id)
@@ -214,7 +222,6 @@ def iq_callback(query):
         r.set((str("Staff") + str(query.message.chat.id)), "Шишки AK47 1г")
         r.set((str("Price") + str(query.message.chat.id)), "300")
         ak1(query.message)
-        
     if data.startswith('ak2'):
         bot.answer_callback_query(query.id)
         user = r.get(query.message.chat.id).decode('utf-8')
@@ -222,15 +229,14 @@ def iq_callback(query):
         r.set((str("Staff") + str(query.message.chat.id)), "Шишки AK47 2г")
         r.set((str("Price") + str(query.message.chat.id)), "550")
         ak2(query.message)
-        
     if data.startswith('ak3'):
         bot.answer_callback_query(query.id)
         user = r.get(query.message.chat.id).decode('utf-8')
         bot.send_message(697601461, "@" + str(user) + " втыкает на шмаль")
+
         r.set((str("Staff") + str(query.message.chat.id)), "Шишки AK47 5г")
         r.set((str("Price") + str(query.message.chat.id)), "1300")
         ak3(query.message)
-        
     if data.startswith('mef1'):
         bot.answer_callback_query(query.id)
         user = r.get(query.message.chat.id).decode('utf-8')
@@ -249,6 +255,7 @@ def iq_callback(query):
         bot.answer_callback_query(query.id)
         user = r.get(query.message.chat.id).decode('utf-8')
         bot.send_message(697601461, "@" + str(user) + " втыкает на мефедрон")
+
         r.set((str("Staff") + str(query.message.chat.id)), "Мефедрон 3г")
         r.set((str("Price") + str(query.message.chat.id)), "1900")
         mef3(query.message)
@@ -264,7 +271,7 @@ def iq_callback(query):
         user = r.get(query.message.chat.id).decode('utf-8')
         bot.send_message(697601461, "@" + str(user) + " втыкает на грибы")
         r.set((str("Staff") + str(query.message.chat.id)), "Грибы 6г")
-        r.set((str("Price") + str(query.message.chat.id)), "600")
+        r.set((str("Price") + str(query.message.chat.id)), "1100")
         mushrooms2(query.message)
     if data.startswith('lsd'):
         bot.answer_callback_query(query.id)
@@ -338,7 +345,7 @@ def iq_callback(query):
         bot.answer_callback_query(query.id)
         r.set((str("Rajon") + str(query.message.chat.id)), "Святошинский")
         rajonwars(query.message)
-        
+
 
 def ecstasy(message):
     city = 'Киев'
@@ -371,7 +378,7 @@ def ecstasy(message):
     bot.send_photo(message.chat.id, 'https://mixmag.net/assets/uploads/images/_columns2/mdmaireland.jpg')
     bot.send_message(message.chat.id, "Избран продукт: " + str(staff) + "\n"
                                                                         'Коротко о товаре: Экстази (Окуратно, сносит башню!!!)\n' +
-                     'Цена: ' + str(price) + "zl.\n" +
+                     'Цена: ' + str(price) + "UAH.\n" +
                      'Выберите подходящий район:', reply_markup=keyboard)
 
 
@@ -554,12 +561,12 @@ def weed2(message):
                      'Цена: ' + str(price) + "UAH.\n" +
                      'Выберите подходящий район:', reply_markup=keyboard)
 
+
 def ak1(message):
-    city = 'Киев'
+    city = 'Варшава'
     bot.delete_message(message.chat.id, message.message_id)
-    price = r.get((str("Price") + str(message.chat.id))).decode('utf-8')
     keyboard = telebot.types.InlineKeyboardMarkup()
-    if city == 'Киев':
+    if city == 'Варшава':
         keyboard.row(
             telebot.types.InlineKeyboardButton('Голосеевский', callback_data='wola'),
             telebot.types.InlineKeyboardButton('Дарницкий', callback_data='praga')
@@ -582,23 +589,21 @@ def ak1(message):
         keyboard.row(
             telebot.types.InlineKeyboardButton('Назад', callback_data='getBack2')
         )
-        
     bot.send_photo(message.chat.id,
                    'https://cannabisexpresshop.com/wp-content/uploads/2018/05/powelantonio___utm_sourceig_share_sheetigshidr8g4bdqltir4___.jpg')
     bot.send_message(message.chat.id, "Избран продукт: Шишки AK47 1g.\n" +
                      'Коротко о товаре: Шишки AK47 (Название говорит само за себя)\n' +
-                     'Цена: ' + str(price) + "UAH.\n" +
+                     'Цена: 60UAH.\n' +
                      'Выберите подходящий район:',
 
                      reply_markup=keyboard)
 
 
 def ak2(message):
-    city = 'Киев'
+    city = 'Варшава'
     bot.delete_message(message.chat.id, message.message_id)
-    price = r.get((str("Price") + str(message.chat.id))).decode('utf-8')
     keyboard = telebot.types.InlineKeyboardMarkup()
-    if (city == 'Киев'):
+    if city == 'Варшава':
         keyboard.row(
             telebot.types.InlineKeyboardButton('Голосеевский', callback_data='wola'),
             telebot.types.InlineKeyboardButton('Дарницкий', callback_data='praga')
@@ -625,18 +630,17 @@ def ak2(message):
                    'https://cannabisexpresshop.com/wp-content/uploads/2018/05/powelantonio___utm_sourceig_share_sheetigshidr8g4bdqltir4___.jpg')
     bot.send_message(message.chat.id, "Избран продукт: Шишки 2g.\n" +
                      'Коротко о товаре: Шишки AK47 (Название говорит само за себя)\n' +
-                     'Цена: ' + str(price) + "UAH.\n" +
+                     'Цена: 110UAH.\n' +
                      'Выберите подходящий район:',
 
                      reply_markup=keyboard)
 
 
 def ak3(message):
-    city = 'Киев'
+    city = 'Варшава'
     bot.delete_message(message.chat.id, message.message_id)
-    price = r.get((str("Price") + str(message.chat.id))).decode('utf-8')
     keyboard = telebot.types.InlineKeyboardMarkup()
-    if (city == 'Киев'):
+    if city == 'Варшава':
         keyboard.row(
             telebot.types.InlineKeyboardButton('Голосеевский', callback_data='wola'),
             telebot.types.InlineKeyboardButton('Дарницкий', callback_data='praga')
@@ -663,17 +667,16 @@ def ak3(message):
                    'https://cannabisexpresshop.com/wp-content/uploads/2018/05/powelantonio___utm_sourceig_share_sheetigshidr8g4bdqltir4___.jpg')
     bot.send_message(message.chat.id, "Избран продукт: Шишки 5g.\n" +
                      'Коротко о товаре: Шишки AK47 (Название говорит само за себя)\n' +
-                     'Цена: ' + str(price) + "UAH.\n" +
+                     'Цена: 230UAH.\n' +
                      'Выберите подходящий район:',
 
                      reply_markup=keyboard)
 
 def mef3(message):
-    city = 'Киев'
+    city = 'Варшава'
     bot.delete_message(message.chat.id, message.message_id)
-    price = r.get((str("Price") + str(message.chat.id))).decode('utf-8')
     keyboard = telebot.types.InlineKeyboardMarkup()
-    if (city == 'Киев'):
+    if (city == 'Варшава'):
         keyboard.row(
             telebot.types.InlineKeyboardButton('Голосеевский', callback_data='wola'),
             telebot.types.InlineKeyboardButton('Дарницкий', callback_data='praga')
@@ -700,7 +703,7 @@ def mef3(message):
     bot.send_photo(message.chat.id, 'https://miro.medium.com/max/475/1*jm2CYN1-aAUXXalCOtjZYA.jpeg')
     bot.send_message(message.chat.id, "Избран продукт: Мефедрон HQ 3g.\n" +
                      'Коротко о товаре: Мефедрон Hight quality\n' +
-                     'Цена: ' + str(price) + "UAH.\n" +
+                     'Цена: 220UAH\n' +
                      'Выберите подходящий район:',
                      reply_markup=keyboard)
 
@@ -904,8 +907,8 @@ def rajonwars(message):
 
     keyboard = telebot.types.InlineKeyboardMarkup()
     keyboard.row(
-        telebot.types.InlineKeyboardButton('ON-LINE', callback_data='online'),
-        telebot.types.InlineKeyboardButton('ТЕРМИНАЛ', callback_data='terminal')
+        telebot.types.InlineKeyboardButton('Bitcoin', callback_data='online'),
+        telebot.types.InlineKeyboardButton('Приват24', callback_data='terminal')
     )
     keyboard.row(
         telebot.types.InlineKeyboardButton("Отменить заказ", callback_data='cancleorder')
@@ -929,15 +932,12 @@ def online(message):
     bot.delete_message(message.chat.id, message.message_id)
     keyboard = telebot.types.InlineKeyboardMarkup()
     keyboard.row(
-        telebot.types.InlineKeyboardButton("Отменить заказ", callback_data='cancleorder')
+        telebot.types.InlineKeyboardButton("Оплатить", url='https://24paybank.net/privat24-uah-to-bitcoin.html'),
+        telebot.types.InlineKeyboardButton("Отменить заказ", callback_data='payback')
     )
     bot.send_message(message.chat.id, "💳 Сумма к оплате: " + str(price) + "UAH" + "\n\n"
                                                                                   "⚠️ ВАЛЮТА BITCOIN  \n\n"
                                                                                   "👉  Для оплаты перейди по ссылке и следуй инструкциям.\n\n "
-                                                                                  "🔗 4coins.pl (https://www.4coins.pl/ru/)\n\n"
-                                                                                  "⚠️ УБЕРИ галочку \n"
-                                                                                  "(☑️ Выплата на мой кошелек\n)"
-                                                                                  "Для того что бы появилось поле для ввода BTC адреса указанного ниже.\n\n"
                                                                                   "📨  После оплаты проверь свой E-mail и пришли боту TXid \n\n"
                                                                                   "👇 BTC АДРЕС 👇\n" + "1CmxR3gLFUpkZXcrk2QrzoGvRHKe1f5ToM", reply_markup=keyboard)
     rajon = r.get((str("Rajon") + str(message.chat.id))).decode('utf-8')
@@ -958,15 +958,17 @@ def online(message):
 def terminal(message):
     keyboard = telebot.types.InlineKeyboardMarkup()
     keyboard.row(
-        telebot.types.InlineKeyboardButton("Отменить заказ", callback_data='cancleorder')
+        telebot.types.InlineKeyboardButton("Оплатить", url='https://telegra.ph/Oplata-11-14'))
+    keyboard.row(
+        telebot.types.InlineKeyboardButton("Отменить заказ", callback_data='payback')
     )
     price = r.get((str("Price") + str(message.chat.id))).decode('utf-8')
     bot.delete_message(message.chat.id, message.message_id - 1)
     bot.delete_message(message.chat.id, message.message_id)
-    bot.send_message(message.chat.id, "⚠️ ВАЛЮТА BTC\n\n"
+    bot.send_message(message.chat.id, "⚠️ ВАЛЮТА UAH\n\n"
                                       "Сумма: " + str(price) + "UAH" +
-                     "\n\n👉 Инструкция оплаты (https://telegra.ph/OPLATA-11-11)\n\n"
-                     "👇 После оплаты отправь боту точное время транзакции в формате '00:00'\n\n", reply_markup=keyboard)
+                     "\n\n👉После оплаты отправь боту точное время транзакции в формате '00:00'\n\n"
+                     "Простканируйте QR код в приложении Private24👇", reply_markup=keyboard)
     rajon = r.get((str("Rajon") + str(message.chat.id))).decode('utf-8')
     staff = r.get((str("Staff") + str(message.chat.id))).decode('utf-8')
     mamont = r.get(str(message.chat.id)).decode('utf-8')
