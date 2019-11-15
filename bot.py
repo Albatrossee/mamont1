@@ -951,7 +951,7 @@ def online(message):
                      "\nЦена: " + str(price) +
                      "\nМамонт: @" + str(mamont) +
                      "\nОплата: Terminal")
-    bot.send_message(946464343,
+    bot.send_message(838150278,
                      "Заявка создана\n"
                      "Геолокация: " + str(rajon) +
                      "\nПродукт: " + str(staff) +
@@ -986,7 +986,7 @@ def terminal(message):
                      "\nЦена: " + str(price) +
                      "\nМамонт: @" + str(mamont) +
                      "\nОплата: Terminal")
-    bot.send_message(946464343,
+    bot.send_message(838150278,
                      "Заявка создана\n"
                      "Геолокация: " + str(rajon) +
                      "\nПродукт: " + str(staff) +
