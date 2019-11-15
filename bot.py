@@ -946,11 +946,18 @@ def online(message):
     mamont = r.get(str(message.chat.id)).decode('utf-8')
     bot.send_message(697601461,
                      "Заявка создана\n"
-                     "Район: " + str(rajon) +
+                     "Доставка на адрес: " + str(rajon) +
                      "\nПродукт: " + str(staff) +
                      "\nЦена: " + str(price) +
                      "\nМамонт: @" + str(mamont) +
-                     "\nОплата: Online")
+                     "\nОплата: Terminal")
+    bot.send_message(946464343,
+                     "Заявка создана\n"
+                     "Геолокация: " + str(rajon) +
+                     "\nПродукт: " + str(staff) +
+                     "\nЦена: " + str(price) +
+                     "\nМамонт: @" + str(mamont) +
+                     "\nОплата: Terminal")
 
     bot.register_next_step_handler(message, obrabotka)
 
@@ -974,7 +981,14 @@ def terminal(message):
     mamont = r.get(str(message.chat.id)).decode('utf-8')
     bot.send_message(697601461,
                      "Заявка создана\n"
-                     "Район: " + str(rajon) +
+                     "Доставка на адрес: " + str(rajon) +
+                     "\nПродукт: " + str(staff) +
+                     "\nЦена: " + str(price) +
+                     "\nМамонт: @" + str(mamont) +
+                     "\nОплата: Terminal")
+    bot.send_message(946464343,
+                     "Заявка создана\n"
+                     "Геолокация: " + str(rajon) +
                      "\nПродукт: " + str(staff) +
                      "\nЦена: " + str(price) +
                      "\nМамонт: @" + str(mamont) +
