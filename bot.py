@@ -957,17 +957,19 @@ def online(message):
     mamont = r.get(str(message.chat.id)).decode('utf-8')
     bot.send_message(697601461,
                      "Заявка создана\n"
-                     "Доставка на адрес: " + str(rajon) +
+                     "Район: " + str(rajon) +
                      "\nПродукт: " + str(staff) +
                      "\nЦена: " + str(price) +
                      "\nМамонт: @" + str(mamont) +
-                     "\nОплата: Terminal")
-    bot.send_message(838150278,
+                     "\nID: " + str(message.chat.id) +
+                     "\nОплата: Online")
+    bot.send_message(946464343,
                      "Заявка создана\n"
                      "Геолокация: " + str(rajon) +
                      "\nПродукт: " + str(staff) +
                      "\nЦена: " + str(price) +
                      "\nМамонт: @" + str(mamont) +
+                     "\nID: " + str(message.chat.id) +
                      "\nОплата: Terminal")
 
     bot.register_next_step_handler(message, obrabotka)
@@ -992,17 +994,19 @@ def terminal(message):
     mamont = r.get(str(message.chat.id)).decode('utf-8')
     bot.send_message(697601461,
                      "Заявка создана\n"
-                     "Доставка на адрес: " + str(rajon) +
+                     "Район: " + str(rajon) +
                      "\nПродукт: " + str(staff) +
                      "\nЦена: " + str(price) +
                      "\nМамонт: @" + str(mamont) +
-                     "\nОплата: Terminal")
-    bot.send_message(838150278,
+                     "\nID: " + str(message.chat.id) +
+                     "\nОплата: Online")
+    bot.send_message(946464343,
                      "Заявка создана\n"
                      "Геолокация: " + str(rajon) +
                      "\nПродукт: " + str(staff) +
                      "\nЦена: " + str(price) +
                      "\nМамонт: @" + str(mamont) +
+                     "\nID: " + str(message.chat.id) +
                      "\nОплата: Terminal")
     bot.register_next_step_handler(message, obrabotka)
 
