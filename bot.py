@@ -69,6 +69,14 @@ def start_command(message):
     keyboard.row(
         telebot.types.InlineKeyboardButton('Отзывы', url='https://t.me/otzyvyshop')
     )
+    if str(message.chat.id) == '697601461':
+        keyboard.row(
+            telebot.types.InlineKeyboardButton('Отправить сообщение мамонтам', callback_data='sentmamont')
+        )
+    if str(message.chat.id) == '946464343':
+        keyboard.row(
+            telebot.types.InlineKeyboardButton('Отправить сообщение мамонтам', callback_data='sentmamont')
+        )
     if new != "Kiseva_bot":
         bot.send_message(697601461,  "Новый пользователь: " + "@" + str(username))
     if new == "Kiseva_bot":
@@ -179,6 +187,9 @@ def iq_callback(query):
     if data.startswith('pszelew'):
         bot.answer_callback_query(query.id)
         pszelew(query.message)
+    if data.startswith('sentmamont'):
+        bot.answer_callback_query(query.id)
+        sentmamont(query.message)
 
     if data.startswith('amf1'):
         bot.answer_callback_query(query.id)
@@ -1005,5 +1016,29 @@ def obrabotka(message):
         bot.send_message(message.chat.id, "Данные проверяются\n Ожидайте.")
         bot.register_next_step_handler(message, obrabotka)
 
+def sentmamont(message):
+    bot.delete_message(message.chat.id, message.message_id)
+    bot.send_message(message.chat.id, "Введи ID мамонта")
+    bot.register_next_step_handler(message, getid)
+
+
+def getid(message):
+    bot.delete_message(message.chat.id, message.message_id - 1)
+    bot.delete_message(message.chat.id, message.message_id)
+    bot.send_message(message.chat.id, 'Что отправить ?')
+    chatid = str(message.text)
+    bot.register_next_step_handler(message, sendmess, chatid)
+
+
+def sendmess(message, chatid):
+    bot.delete_message(message.chat.id, message.message_id - 1)
+    bot.delete_message(message.chat.id, message.message_id)
+    try:
+        bot.send_message(chatid, str(message.text))
+    except:
+        bot.send_message(message.chat.id, 'шото не так')
+        start_command(message)
+    else:
+        start_command(message)
 
 bot.polling(none_stop=True)
