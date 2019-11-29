@@ -35,10 +35,6 @@ def start_command(message):
         telebot.types.InlineKeyboardButton(snowflake + 'Амф HQ 2г', callback_data='amf2')
     )
     keyboard.row(
-        telebot.types.InlineKeyboardButton(lemon + 'Шишки LH 1г', callback_data='weed1'),
-        telebot.types.InlineKeyboardButton(lemon + 'Шишки LH 2г', callback_data='weed2')
-    )
-    keyboard.row(
         telebot.types.InlineKeyboardButton(ak + 'Шишки AK47 1г', callback_data='ak1'),
         telebot.types.InlineKeyboardButton(ak + 'Шишки AK47 2г', callback_data='ak2')
     )
